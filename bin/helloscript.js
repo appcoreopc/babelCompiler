@@ -2,15 +2,12 @@ module.exports = function(babel)
 {
 	const t = babel.types; 
 	return {
-		
 		visitor : {
 			 BinaryExpression(path)
 			 {
-			 	console.log(path);
-
-				if (path.node.type === 'Identifier' && path.node.name === 'a')
+				if (path.parent.id.type === 'Identifier' && path.parent.id.name === 'a')
 				{
-					path.node.name = 'total';
+					path.parent.id.name = 'total';
 				}
 			}
 		}

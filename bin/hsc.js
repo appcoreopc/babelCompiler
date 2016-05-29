@@ -4,8 +4,6 @@ var fs = require('fs');
 var babel = require('babel-core');
 var helloscript = require('./helloscript');
 
-console.log(helloscript);
-
 var fileName = process.argv[2];
 
 fs.readFile(fileName, function(err, data) {
@@ -16,5 +14,8 @@ fs.readFile(fileName, function(err, data) {
     plugins: [helloscript]
   });
 
+  console.log('original code:-');
+  console.log(src);
+  console.log('transformed code:-');
   console.log(out.code);
 });
